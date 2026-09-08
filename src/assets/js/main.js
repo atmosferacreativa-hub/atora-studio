@@ -1,94 +1,37 @@
 (function () {
   document.documentElement.classList.add("js");
+  var toggle = document.querySelector(".nav-toggle");
+  var nav = document.getElementById("site-nav");
+  var mobile = window.matchMedia("(max-width: 900px)");
 
-  var prefersReducedMotion =
-    typeof window !== "undefined" &&
-    window.matchMedia &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  function setupMobileMenu() {
-    var toggleButton = document.querySelector(".nav-toggle");
-    if (!toggleButton) return;
-
-    var navId = toggleButton.getAttribute("aria-controls");
-    if (!navId) return;
-
-    var nav = document.getElementById(navId);
-    if (!nav) return;
-
-    var mobileQuery =
-      typeof window !== "undefined" && window.matchMedia
-        ? window.matchMedia("(max-width: 920px)")
-        : null;
-
-    function setExpanded(expanded) {
-      toggleButton.setAttribute("aria-expanded", expanded ? "true" : "false");
-      toggleButton.setAttribute("aria-label", expanded ? "Cerrar menú" : "Abrir menú");
-      if (mobileQuery && mobileQuery.matches) {
-        nav.hidden = !expanded;
-      }
-    }
-
-    function syncForViewport() {
-      if (!mobileQuery) return;
-      if (mobileQuery.matches) {
-        nav.hidden = toggleButton.getAttribute("aria-expanded") !== "true";
-      } else {
-        nav.hidden = false;
-        setExpanded(false);
-      }
-    }
-
-    toggleButton.addEventListener("click", function () {
-      var expanded = toggleButton.getAttribute("aria-expanded") === "true";
-      setExpanded(!expanded);
-    });
-
-    nav.addEventListener("click", function (event) {
-      var link = event.target && event.target.closest ? event.target.closest("a") : null;
-      if (!link) return;
-      if (!mobileQuery || !mobileQuery.matches) return;
-      setExpanded(false);
-    });
-
-    document.addEventListener("keydown", function (event) {
-      if (event.key !== "Escape") return;
-      if (!mobileQuery || !mobileQuery.matches) return;
-      if (toggleButton.getAttribute("aria-expanded") !== "true") return;
-      setExpanded(false);
-      toggleButton.focus();
-    });
-
-    if (mobileQuery && mobileQuery.addEventListener) {
-      mobileQuery.addEventListener("change", syncForViewport);
-    } else if (mobileQuery && mobileQuery.addListener) {
-      mobileQuery.addListener(syncForViewport);
-    }
-
-    syncForViewport();
+  function setMenu(open) {
+    if (!toggle || !nav) return;
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+    if (mobile.matches) nav.hidden = !open;
+  }
+  function syncMenu() {
+    if (!toggle || !nav) return;
+    if (mobile.matches) setMenu(false);
+    else nav.hidden = false;
+  }
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () { setMenu(toggle.getAttribute("aria-expanded") !== "true"); });
+    nav.addEventListener("click", function (event) { if (event.target.closest("a") && mobile.matches) setMenu(false); });
+    document.addEventListener("keydown", function (event) { if (event.key === "Escape" && mobile.matches) { setMenu(false); toggle.focus(); } });
+    if (mobile.addEventListener) mobile.addEventListener("change", syncMenu);
+    syncMenu();
   }
 
-  function setupAnchorScroll() {
-    if (prefersReducedMotion) return;
-
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     document.addEventListener("click", function (event) {
-      var link = event.target && event.target.closest ? event.target.closest("a") : null;
+      var link = event.target.closest("a[href^='#']");
       if (!link) return;
-
-      var href = link.getAttribute("href");
-      if (!href || href.charAt(0) !== "#") return;
-
-      var el = document.querySelector(href);
-      if (!el) return;
-
+      var target = document.querySelector(link.getAttribute("href"));
+      if (!target) return;
       event.preventDefault();
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-      if (window.location && window.location.hash !== href) {
-        history.pushState(null, "", href);
-      }
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      history.pushState(null, "", link.getAttribute("href"));
     });
   }
-
-  setupMobileMenu();
-  setupAnchorScroll();
 })();
