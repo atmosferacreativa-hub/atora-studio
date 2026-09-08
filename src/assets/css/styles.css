@@ -705,7 +705,6 @@ a:hover {
     justify-content: center;
   }
 }
-}
 
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
