@@ -1,0 +1,10 @@
+<article class="product-card" aria-label="{{ name }}">
+  <header class="product-card__header">
+    <h3 class="product-card__title">{{ name }}</h3>
+    {% if badge %}
+      <p class="product-card__badge">{{ badge }}</p>
+    {% endif %}
+  </header>
+  <p class="product-card__description">{{ description }}</p>
+</article>
+

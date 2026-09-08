@@ -1,0 +1,58 @@
+---
+layout: layouts/base.njk
+title: ATORA Studio
+description: ATORA Studio desarrolla productos conectados para crear, gestionar y hacer crecer experiencias educativas digitales.
+---
+
+<div class="page">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-card">
+      <p class="kicker">Ecosistema educativo en desarrollo.</p>
+      <h1 id="hero-title">Tecnología para enseñar mejor.</h1>
+      <p class="lead">
+        ATORA Studio desarrolla productos conectados para crear, gestionar y hacer crecer experiencias educativas digitales.
+      </p>
+
+      <div class="hero-actions">
+        <a class="button" href="#ecosistema">Conocer el ecosistema</a>
+        <a class="button button--ghost" href="#productos">Ver productos</a>
+      </div>
+
+      <p class="note">Actualmente en fase de desarrollo, pruebas y optimización.</p>
+    </div>
+  </section>
+
+  <section class="section" id="ecosistema" aria-labelledby="ecosistema-title">
+    <h2 id="ecosistema-title">Ecosistema</h2>
+    <p>
+      ATORA Studio es la casa de un ecosistema tecnológico pensado alrededor de la educación: herramientas conectadas que priorizan claridad,
+      accesibilidad y una experiencia humana para enseñar y aprender.
+    </p>
+    <p>
+      Estamos en etapa de prelanzamiento: construimos la base, validamos decisiones y ajustamos la dirección del producto con foco en reducir fricción.
+    </p>
+  </section>
+
+  <section class="section" id="productos" aria-labelledby="productos-title">
+    <h2 id="productos-title">Productos</h2>
+    <div class="products-grid">
+      {% set name = "ATORA LMS" %}
+      {% set badge = "En desarrollo activo" %}
+      {% set description = "La plataforma educativa modular para enseñar, acompañar, evaluar y hacer crecer proyectos de formación desde WordPress." %}
+      {% include "components/product-card.njk" %}
+
+      {% set name = "ATORA Theme" %}
+      {% set badge = "En desarrollo activo" %}
+      {% set description = "La experiencia visual diseñada para presentar ATORA LMS de forma coherente, clara y adaptable a la identidad de cada academia." %}
+      {% include "components/product-card.njk" %}
+    </div>
+  </section>
+
+  <section class="section closing" aria-labelledby="closing-title">
+    <div class="closing-inner">
+      <h2 id="closing-title">Estamos construyendo ATORA con una idea sencilla.</h2>
+      <p>Que la tecnología reduzca fricción para que enseñar vuelva a ocupar el centro.</p>
+      <p class="note">Prelanzamiento: compartiremos novedades cuando el ecosistema esté listo para mostrarse con claridad.</p>
+    </div>
+  </section>
+</div>

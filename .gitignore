@@ -1,0 +1,15 @@
+node_modules
+_site
+.DS_Store
+
+# Env
+.env
+.env.*
+
+# Editor / OS temp
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
