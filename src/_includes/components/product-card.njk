@@ -1,10 +1,17 @@
-<article class="product-card" aria-label="{{ name }}">
+<article class="card product-card" aria-label="{{ name }}">
   <header class="product-card__header">
-    <h3 class="product-card__title">{{ name }}</h3>
+    {% if logoSrc and logoAlt %}
+      <img class="product-card__logo" src="{{ logoSrc }}" alt="{{ logoAlt }}" loading="lazy" decoding="async" />
+    {% endif %}
+    <div class="product-card__headings">
+      <h3 class="product-card__title">{{ name }}</h3>
+      {% if subtitle %}
+        <p class="product-card__subtitle">{{ subtitle }}</p>
+      {% endif %}
+    </div>
     {% if badge %}
       <p class="product-card__badge">{{ badge }}</p>
     {% endif %}
   </header>
   <p class="product-card__description">{{ description }}</p>
 </article>
-

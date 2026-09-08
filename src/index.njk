@@ -1,58 +1,276 @@
 ---
 layout: layouts/base.njk
 title: ATORA Studio
-description: ATORA Studio desarrolla productos conectados para crear, gestionar y hacer crecer experiencias educativas digitales.
+description: ATORA reúne aprendizaje, evaluación, seguimiento académico, comunicación, inteligencia artificial y herramientas de crecimiento en un ecosistema diseñado para docentes, instituciones, creadores y academias.
 ---
 
 <div class="page">
   <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-card">
-      <p class="kicker">Ecosistema educativo en desarrollo.</p>
-      <h1 id="hero-title">Tecnología para enseñar mejor.</h1>
-      <p class="lead">
-        ATORA Studio desarrolla productos conectados para crear, gestionar y hacer crecer experiencias educativas digitales.
-      </p>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="kicker">Plataforma educativa modular para WordPress</p>
+        <h1 id="hero-title">Enseña. Acompaña. Evalúa. Crece.</h1>
+        <p class="lead">
+          ATORA reúne aprendizaje, evaluación, seguimiento académico, comunicación, inteligencia artificial y herramientas de crecimiento en un ecosistema
+          diseñado para docentes, instituciones, creadores y academias.
+        </p>
 
-      <div class="hero-actions">
-        <a class="button" href="#ecosistema">Conocer el ecosistema</a>
-        <a class="button button--ghost" href="#productos">Ver productos</a>
+        <div class="hero-actions">
+          <a class="button" href="#producto">Conocer ATORA</a>
+          <a class="button button--ghost" href="#ecosistema">Explorar el ecosistema</a>
+        </div>
+
+        <p class="note">Actualmente en fase de desarrollo, pruebas y optimización.</p>
       </div>
 
-      <p class="note">Actualmente en fase de desarrollo, pruebas y optimización.</p>
+      <div class="hero-visual" aria-label="Representación conceptual de módulos conectados">
+        <p class="concept-label">Representación conceptual</p>
+        <div class="concept-map" role="img" aria-label="Cursos, Evaluación, Seguimiento, IA, Comunicación y Crecimiento conectados">
+          <div class="concept-node concept-node--primary">Cursos</div>
+          <div class="concept-node">Evaluación</div>
+          <div class="concept-node">Seguimiento</div>
+          <div class="concept-node">IA</div>
+          <div class="concept-node">Comunicación</div>
+          <div class="concept-node concept-node--accent">Crecimiento</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="manifiesto-title">
+    <div class="container">
+      <h2 id="manifiesto-title">No queríamos construir otro lugar donde subir cursos.</h2>
+      <div class="prose">
+        <p>
+          Enseñar implica crear contenidos, orientar estudiantes, revisar entregas, detectar dificultades, organizar clases, responder mensajes, emitir
+          certificados y, muchas veces, gestionar también matrículas, campañas y ventas.
+        </p>
+        <p>Cuando cada parte vive en una herramienta diferente, la tecnología comienza a convertirse en trabajo.</p>
+        <p>ATORA nace para volver a reunirlo.</p>
+      </div>
+      <blockquote class="callout">
+        <p>La tecnología debe ayudar a enseñar mejor, no complicar la enseñanza.</p>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="section" id="soluciones" aria-labelledby="soluciones-title">
+    <div class="container">
+      <h2 id="soluciones-title">Una plataforma. Distintas formas de enseñar.</h2>
+      <p class="section-lead">ATORA se configura de acuerdo con el proyecto que estás construyendo.</p>
+
+      <div class="grid grid--4">
+        {% set title = "Docente" %}
+        {% set text = "Para profesores que quieren crear cursos, evaluar, acompañar estudiantes y emitir certificados desde su propio sitio." %}
+        {% include "components/solution-card.njk" %}
+
+        {% set title = "Institución" %}
+        {% set text = "Para universidades, empresas y centros de formación que necesitan coordinación, seguimiento, analítica, comunicación y clases en vivo." %}
+        {% include "components/solution-card.njk" %}
+
+        {% set title = "Creadores" %}
+        {% set text = "Para quienes, además de enseñar, necesitan captar estudiantes, comercializar formación y automatizar procesos." %}
+        {% include "components/solution-card.njk" %}
+
+        {% set title = "Academia" %}
+        {% set text = "Para proyectos que requieren aprendizaje, operación académica y crecimiento dentro de un mismo ecosistema." %}
+        {% include "components/solution-card.njk" %}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="producto" aria-labelledby="hoy-title">
+    <div class="container split">
+      <div class="split-copy">
+        <p class="kicker kicker--blue">ATORA LMS</p>
+        <h2 id="hoy-title">Tu día no debería comenzar preguntándote dónde mirar.</h2>
+        <p class="section-lead">ATORA incorpora Hoy, un espacio diseñado para mostrar lo que realmente necesita tu atención.</p>
+        <p class="note">En lugar de repartir información entre diferentes paneles, ATORA ayuda a convertir los datos en acciones.</p>
+      </div>
+
+      <div class="split-visual">
+        <div class="concept-panel" role="img" aria-label="Vista conceptual de Hoy con señales de atención">
+          <div class="concept-panel__top">
+            <p class="concept-panel__title">Hoy</p>
+            <p class="concept-label concept-label--inline">Vista conceptual</p>
+          </div>
+          <ul class="signals">
+            <li><span class="signal-dot"></span> Entregas pendientes</li>
+            <li><span class="signal-dot"></span> Estudiantes inactivos</li>
+            <li><span class="signal-dot"></span> Evaluaciones por revisar</li>
+            <li><span class="signal-dot"></span> Seguimientos programados</li>
+            <li><span class="signal-dot"></span> Alertas académicas</li>
+            <li><span class="signal-dot"></span> Tareas comerciales</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="seguimiento-title">
+    <div class="container">
+      <h2 id="seguimiento-title">Acompañar antes de perder a un estudiante.</h2>
+      <div class="prose">
+        <p>Una plataforma educativa no debería limitarse a registrar quién entró y quién terminó.</p>
+        <p>
+          ATORA permite identificar señales que pueden requerir atención: inactividad, bajo rendimiento, entregas pendientes o ausencias reiteradas.
+        </p>
+        <p>Porque muchas veces el dato realmente importante no es cuántos estudiantes abandonaron. Es a quién todavía estamos a tiempo de ayudar.</p>
+      </div>
+      <p class="emphasis">Es a quién todavía estamos a tiempo de ayudar.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="evaluacion-title">
+    <div class="container split">
+      <div class="split-copy">
+        <h2 id="evaluacion-title">Evaluar mejor, no simplemente calificar más rápido.</h2>
+        <div class="prose">
+          <p>ATORA conecta cursos, actividades, entregas, rúbricas, competencias, retroalimentación y progreso.</p>
+          <p>
+            Con SpeedGrade, el trabajo docente se concentra en un flujo de revisión diseñado para comprender la evidencia, proporcionar orientación y
+            mantener la decisión académica en manos del educador.
+          </p>
+        </div>
+      </div>
+      <div class="split-visual">
+        <div class="concept-panel" role="img" aria-label="Conceptos de evaluación conectados">
+          <p class="concept-label concept-label--inline">Representación conceptual</p>
+          <div class="chips">
+            <span class="chip">Rúbricas claras</span>
+            <span class="chip">Retroalimentación conectada</span>
+            <span class="chip">Seguimiento posterior</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="ia" aria-labelledby="ia-title">
+    <div class="container">
+      <h2 id="ia-title">Inteligencia artificial con propósito educativo.</h2>
+      <div class="prose">
+        <p>La IA en ATORA no es una pantalla aparte esperando que descubras qué preguntarle. Está integrada en tareas concretas.</p>
+        <p>
+          Puede ayudar al docente a estructurar cursos, mejorar lecciones, preparar rúbricas, elaborar cuestionarios, analizar el desempeño y redactar
+          comunicaciones.
+        </p>
+        <p>
+          Puede acompañar al estudiante utilizando el contenido real de su curso como contexto. Y puede colaborar en la evaluación según las reglas
+          definidas por el docente o la institución.
+        </p>
+      </div>
+
+      <div class="modes" aria-label="Modalidades de inteligencia artificial">
+        <span class="mode">Manual</span>
+        <span class="mode">Asistida</span>
+        <span class="mode">Híbrida</span>
+        <span class="mode">Automática</span>
+      </div>
+
+      <p class="callout-inline"><strong>Tú defines hasta dónde participa.</strong> ATORA también funciona sin inteligencia artificial.</p>
+    </div>
+  </section>
+
+  <section class="section" id="integraciones" aria-labelledby="integraciones-title">
+    <div class="container">
+      <h2 id="integraciones-title">Conecta lo que ya forma parte de tu trabajo.</h2>
+
+      <div class="grid grid--3">
+        <div class="card">
+          <h3 class="card-title">Google</h3>
+          <ul class="list">
+            <li>Inicio de sesión</li>
+            <li>Calendar</li>
+            <li>Meet</li>
+            <li>Drive</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Clases en vivo</h3>
+          <ul class="list">
+            <li>Zoom</li>
+            <li>Google Meet</li>
+            <li>Microsoft Teams</li>
+            <li>YouTube Live</li>
+            <li>Enlaces personalizados</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Operación</h3>
+          <ul class="list">
+            <li>WooCommerce</li>
+            <li>Servicios de correo</li>
+            <li>Calendarios</li>
+            <li>API y webhooks</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="note">Las capacidades disponibles dependen de la configuración y del proveedor utilizado.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="modularidad-title">
+    <div class="container split">
+      <div class="split-copy">
+        <h2 id="modularidad-title">Construido para adaptarse, no para obligarte a usarlo todo.</h2>
+        <div class="prose">
+          <p>
+            ATORA organiza sus capacidades mediante módulos y perfiles de instalación. Los componentes que un proyecto no necesita pueden permanecer
+            desactivados.
+          </p>
+          <p>
+            Un docente independiente, una universidad, una organización empresarial y una academia comercial no tienen por qué administrar exactamente el
+            mismo sistema.
+          </p>
+          <p>Empieza con lo que necesitas. Activa más cuando lo necesites.</p>
+        </div>
+      </div>
+      <div class="split-visual">
+        <div class="concept-panel" role="img" aria-label="Representación conceptual de módulos activables">
+          <p class="concept-label concept-label--inline">Representación conceptual</p>
+          <ul class="modules">
+            <li><span class="module-name">Cursos</span><span class="module-state module-state--on">Activo</span></li>
+            <li><span class="module-name">Evaluación</span><span class="module-state module-state--on">Activo</span></li>
+            <li><span class="module-name">Seguimiento</span><span class="module-state module-state--on">Activo</span></li>
+            <li><span class="module-name">Comunicación</span><span class="module-state module-state--on">Activo</span></li>
+            <li><span class="module-name">IA</span><span class="module-state module-state--off">Opcional</span></li>
+            <li><span class="module-name">Crecimiento</span><span class="module-state module-state--off">Opcional</span></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="section" id="ecosistema" aria-labelledby="ecosistema-title">
-    <h2 id="ecosistema-title">Ecosistema</h2>
-    <p>
-      ATORA Studio es la casa de un ecosistema tecnológico pensado alrededor de la educación: herramientas conectadas que priorizan claridad,
-      accesibilidad y una experiencia humana para enseñar y aprender.
-    </p>
-    <p>
-      Estamos en etapa de prelanzamiento: construimos la base, validamos decisiones y ajustamos la dirección del producto con foco en reducir fricción.
-    </p>
-  </section>
+    <div class="container">
+      <h2 id="ecosistema-title">ATORA Studio: el sistema y la experiencia, pensados juntos.</h2>
+      <p class="section-lead">ATORA Studio es la casa de un ecosistema de productos creados alrededor de la educación.</p>
 
-  <section class="section" id="productos" aria-labelledby="productos-title">
-    <h2 id="productos-title">Productos</h2>
-    <div class="products-grid">
-      {% set name = "ATORA LMS" %}
-      {% set badge = "En desarrollo activo" %}
-      {% set description = "La plataforma educativa modular para enseñar, acompañar, evaluar y hacer crecer proyectos de formación desde WordPress." %}
-      {% include "components/product-card.njk" %}
+      <div class="grid grid--2">
+        {% set name = "ATORA LMS" %}
+        {% set subtitle = "La lógica educativa." %}
+        {% set badge = "En desarrollo activo" %}
+        {% set description = "Cursos, estudiantes, evaluación, seguimiento académico, comunicación, inteligencia artificial y crecimiento dentro de una plataforma modular para WordPress." %}
+        {% include "components/product-card.njk" %}
 
-      {% set name = "ATORA Theme" %}
-      {% set badge = "En desarrollo activo" %}
-      {% set description = "La experiencia visual diseñada para presentar ATORA LMS de forma coherente, clara y adaptable a la identidad de cada academia." %}
-      {% include "components/product-card.njk" %}
+        {% set name = "ATORA Theme" %}
+        {% set subtitle = "La experiencia visual." %}
+        {% set badge = "En desarrollo activo" %}
+        {% set description = "El tema creado para presentar ATORA LMS de forma clara, coherente y adaptable a la identidad de cada academia." %}
+        {% include "components/product-card.njk" %}
+      </div>
     </div>
   </section>
 
-  <section class="section closing" aria-labelledby="closing-title">
-    <div class="closing-inner">
-      <h2 id="closing-title">Estamos construyendo ATORA con una idea sencilla.</h2>
-      <p>Que la tecnología reduzca fricción para que enseñar vuelva a ocupar el centro.</p>
-      <p class="note">Prelanzamiento: compartiremos novedades cuando el ecosistema esté listo para mostrarse con claridad.</p>
+  <section class="section closing" id="prelanzamiento" aria-labelledby="closing-title">
+    <div class="container">
+      <h2 id="closing-title">Que la tecnología desaparezca un poco para que enseñar vuelva a ocupar el centro.</h2>
+      <p class="section-lead">
+        ATORA continúa en fase de desarrollo, pruebas y optimización. Estamos construyendo cuidadosamente antes de abrir el ecosistema al público.
+      </p>
+      <p><a class="button button--ghost" href="#inicio">Volver al inicio</a></p>
     </div>
   </section>
 </div>

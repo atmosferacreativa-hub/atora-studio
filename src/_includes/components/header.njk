@@ -1,18 +1,28 @@
 <header class="site-header" id="inicio">
   <div class="container header-inner">
-    <div class="brand">
-      <a class="brand-link" href="/" aria-label="Ir a inicio">
-        <span class="brand-text">ATORA Studio</span>
-      </a>
-      <p class="brand-tagline">{{ site.tagline }}</p>
-    </div>
+    <a class="brand-link" href="/" aria-label="Ir a inicio">
+      <span class="brand-text">ATORA Studio</span>
+      <span class="brand-tagline">{{ site.tagline }}</span>
+    </a>
 
-    <nav class="site-nav" aria-label="Navegación principal">
-      <a href="#inicio">Inicio</a>
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      aria-label="Abrir menú"
+    >
+      <span class="nav-toggle__icon" aria-hidden="true"></span>
+      <span class="nav-toggle__text">Menú</span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
+      <a href="#producto">Producto</a>
+      <a href="#soluciones">Soluciones</a>
+      <a href="#ia">IA</a>
+      <a href="#integraciones">Integraciones</a>
       <a href="#ecosistema">Ecosistema</a>
-      <a href="#productos">Productos</a>
-      <a class="button button--ghost" href="#ecosistema">Conocer ATORA</a>
+      <a class="button button--ghost nav-cta" href="#producto">Conocer ATORA</a>
     </nav>
   </div>
 </header>
-
