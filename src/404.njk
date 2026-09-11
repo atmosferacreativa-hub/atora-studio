@@ -1,14 +1,24 @@
 ---
-layout: layouts/base.njk
-title: Página no encontrada
 permalink: 404.html
 eleventyExcludeFromCollections: true
 ---
 
-<div class="page container">
-  <section class="section" aria-labelledby="notfound-title">
-    <h1 id="notfound-title">Página no encontrada</h1>
-    <p>La página que buscas no existe o fue movida.</p>
-    <p><a class="button button--ghost" href="/">Volver al inicio</a></p>
-  </section>
-</div>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Página no encontrada — ATORA</title>
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <meta http-equiv="refresh" content="0; url=/#/inicio">
+</head>
+<body>
+  <main class="container" style="padding:64px 20px">
+    <h1>Página no encontrada</h1>
+    <p>Redirigiendo al inicio…</p>
+    <p><a href="/#/inicio">Ir al inicio</a></p>
+  </main>
+</body>
+</html>
