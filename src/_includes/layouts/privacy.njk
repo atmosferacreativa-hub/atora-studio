@@ -1,0 +1,16 @@
+---
+layout: layouts/base.njk
+---
+<style>
+.privacy-policy{max-width:860px;margin:0 auto;padding:48px 24px 72px;line-height:1.75;overflow-wrap:anywhere}
+.privacy-policy h1{font-size:clamp(1.8rem,5vw,2.7rem);line-height:1.2;margin:0 0 24px}
+.privacy-policy h2{font-size:1.4rem;margin:32px 0 12px}
+.privacy-policy p,.privacy-policy ul{margin:0 0 18px}
+.privacy-policy ul{padding-inline-start:24px}
+.privacy-policy a{color:inherit;text-decoration:underline}
+.privacy-policy hr{margin:48px 0}
+</style>
+<article class="privacy-policy">
+<p><a href="/">ATORA Studio</a> · <a href="mailto:admin@atora.studio">admin@atora.studio</a></p>
+{{ content | safe }}
+</article>
