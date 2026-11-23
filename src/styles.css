@@ -270,6 +270,75 @@ input[type="range"] { width: 100%; accent-color: var(--blue); }
   .copilot-panel { padding: 26px 22px; }
 }
 
+/* --- Una clase en acción (mock accesible) --- */
+
+.section-head { max-width: 920px; }
+
+.cards-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+.demo-flow { display: grid; gap: 22px; margin-top: 28px; }
+
+.demo-step { border: 1px solid var(--line); border-radius: 18px; padding: 20px; background: rgba(255,255,255,.02); }
+.demo-step__head { display: grid; grid-template-columns: 56px 1fr; gap: 14px; align-items: start; margin-bottom: 16px; }
+.demo-step__index { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 999px; background: rgba(255,196,88,.14); border: 1px solid rgba(255,196,88,.25); font-weight: 700; color: var(--gold); }
+.demo-step__head p { margin: 6px 0 0; color: var(--muted); }
+
+.mock { position: relative; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: rgba(7,21,47,.65); }
+.mock.phone { max-width: 420px; }
+.mock.desktop { width: 100%; }
+.mock__topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 14px; border-bottom: 1px solid var(--line); background: rgba(0,0,0,.22); }
+.mock__title { font-weight: 700; }
+.mock__body { padding: 16px 14px 18px; }
+.mock__footer { margin-top: 12px; }
+
+.illustrative-tag { position: absolute; top: 10px; left: 10px; z-index: 2; padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); font-size: 12px; color: rgba(255,255,255,.9); }
+
+.pill { display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); font-size: 12px; color: rgba(255,255,255,.92); }
+.pill.success { background: rgba(46,204,113,.1); border-color: rgba(46,204,113,.22); }
+.pill.warn { background: rgba(255,196,88,.1); border-color: rgba(255,196,88,.22); }
+
+.upload-list { display: grid; gap: 8px; margin-top: 12px; }
+.upload-item { display: flex; justify-content: space-between; gap: 12px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; background: rgba(255,255,255,.03); }
+.upload-item .file { font-weight: 600; }
+.upload-item .status { color: var(--muted); font-size: 13px; }
+
+.textarea { border: 1px solid var(--line); border-radius: 14px; padding: 12px; background: rgba(255,255,255,.03); color: rgba(255,255,255,.92); }
+
+.split { display: grid; grid-template-columns: 1fr 1.25fr; gap: 16px; }
+.preview { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.thumb { border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,.03); padding: 18px 12px; text-align: center; color: var(--muted); font-weight: 600; }
+
+.rubric table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
+.rubric th, .rubric td { text-align: left; padding: 10px 8px; border-top: 1px solid var(--line); vertical-align: top; }
+.rubric th { color: rgba(255,255,255,.92); font-weight: 700; }
+.rubric-note { margin-top: 12px; }
+.feedback { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); }
+.feedback p { margin: 8px 0 0; color: rgba(255,255,255,.88); }
+
+.grade-summary { display: grid; grid-template-columns: 180px 1fr; gap: 18px; align-items: start; }
+.grade-big strong { display: block; font-size: 34px; line-height: 1.1; }
+.grade-big span { color: var(--muted); font-weight: 600; }
+.gradebook { margin-top: 18px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.gradebook__row { display: grid; grid-template-columns: 1fr 120px 160px; gap: 12px; padding: 12px 14px; border-top: 1px solid var(--line); }
+.gradebook__row:first-child { border-top: 0; }
+.gradebook__head { background: rgba(0,0,0,.22); font-weight: 700; }
+
+.ai-example { margin: 18px 0 22px; padding: 18px; border: 1px solid rgba(255,196,88,.25); background: rgba(255,196,88,.06); border-radius: 18px; }
+.ai-example h3 { margin-top: 0; }
+
+.request-preview { white-space: pre-wrap; margin: 12px 0 0; padding: 12px; border-radius: 12px; border: 1px solid var(--line); background: rgba(0,0,0,.22); overflow: auto; max-height: 280px; }
+
+.footer-clarifier { max-width: 940px; margin: 12px auto 0; padding: 0 24px; color: rgba(255,255,255,.78); }
+.footer-clarifier p { margin: 0; font-size: 14px; line-height: 1.6; }
+
+@media (max-width: 920px) {
+  .cards-2 { grid-template-columns: 1fr; }
+  .split { grid-template-columns: 1fr; }
+  .mock.phone { max-width: 100%; }
+  .grade-summary { grid-template-columns: 1fr; }
+  .gradebook__row { grid-template-columns: 1fr; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }

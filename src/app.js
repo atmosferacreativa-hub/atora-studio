@@ -28,7 +28,7 @@ const copilots = {
     ],
   },
   evaluador: {
-    label: 'Evaluador', tag: 'Convierte horas de corrección en minutos',
+    label: 'Evaluador', tag: 'Acelera la corrección sin perder criterio',
     items: [
       ['Calificación asistida contra criterios', 'Evalúa cada entrega contra la rúbrica del docente, no contra un estándar genérico.'],
       ['Lee los archivos que entrega el estudiante', 'Extrae el texto de PDF y Word para evaluar el contenido real, no solo el enunciado.'],
@@ -87,6 +87,141 @@ const cta = () => `
     </div>
   </section>`;
 
+const renderIllustrativeTag = () => `
+  <div class="illustrative-tag" aria-label="Ejemplo ilustrativo">Ejemplo ilustrativo</div>
+`;
+
+const renderClassInAction = () => {
+  const activityName = 'Actividad: Serie de 3 fotos + decisión de encuadre';
+  const criterionName = 'Criterio de la rúbrica: Decisión de encuadre';
+
+  return `
+    <section class="section" id="clase-en-accion">
+      <div class="container">
+        <div class="section-head">
+          <h2>Una clase en acción</h2>
+          <p class="lead">Ejemplo basado en un módulo del <strong>Diplomado de Fotografía</strong>: el estudiante entrega una serie de tres fotos y explica una decisión de encuadre. La misma actividad se ve en el teléfono, en SpeedGrade y en el libro de calificaciones.</p>
+        </div>
+
+        <div class="demo-flow" role="list" aria-label="Tres momentos de la misma tarea">
+          <article class="demo-step" role="listitem">
+            <header class="demo-step__head">
+              <span class="demo-step__index" aria-hidden="true">01</span>
+              <div>
+                <h3>El estudiante prepara la entrega desde el teléfono</h3>
+                <p>${escapeHTML(activityName)} · ${escapeHTML(criterionName)}</p>
+              </div>
+            </header>
+
+            <figure class="mock phone" aria-label="Vista simulada en teléfono">
+              ${renderIllustrativeTag()}
+              <div class="mock__topbar">
+                <span class="mock__title">Entrega</span>
+                <span class="pill warn">Sin conexión</span>
+              </div>
+              <div class="mock__body">
+                <strong>${escapeHTML(activityName)}</strong>
+                <p class="muted">Sube 3 fotos y explica tu decisión de encuadre.</p>
+                <div class="upload-list" role="list" aria-label="Archivos adjuntos">
+                  <div class="upload-item" role="listitem"><span class="file">foto-01.jpg</span><span class="status">pendiente de sincronización</span></div>
+                  <div class="upload-item" role="listitem"><span class="file">foto-02.jpg</span><span class="status">pendiente de sincronización</span></div>
+                  <div class="upload-item" role="listitem"><span class="file">foto-03.jpg</span><span class="status">pendiente de sincronización</span></div>
+                </div>
+                <div class="field">
+                  <label class="sr-only" for="demo-reflexion">Decisión de encuadre</label>
+                  <div class="textarea" id="demo-reflexion" role="textbox" aria-multiline="true">
+                    Elegí un encuadre bajo para exagerar la altura del sujeto y dejar aire negativo arriba.
+                  </div>
+                </div>
+                <div class="mock__footer">
+                  <span class="pill">Se enviará al reconectarse</span>
+                </div>
+              </div>
+            </figure>
+          </article>
+
+          <article class="demo-step" role="listitem">
+            <header class="demo-step__head">
+              <span class="demo-step__index" aria-hidden="true">02</span>
+              <div>
+                <h3>El docente califica con rúbrica en SpeedGrade</h3>
+                <p>${escapeHTML(activityName)} · ${escapeHTML(criterionName)}</p>
+              </div>
+            </header>
+
+            <figure class="mock desktop" aria-label="Vista ilustrativa de SpeedGrade">
+              ${renderIllustrativeTag()}
+              <div class="mock__topbar">
+                <span class="mock__title">SpeedGrade · Revisión de entrega</span>
+                <span class="pill">Rúbrica</span>
+              </div>
+              <div class="mock__body">
+                <div class="split">
+                  <div class="preview" aria-label="Tira de imágenes">
+                    <div class="thumb">Foto 1</div>
+                    <div class="thumb">Foto 2</div>
+                    <div class="thumb">Foto 3</div>
+                  </div>
+                  <div class="rubric" aria-label="Rúbrica de evaluación">
+                    <strong>${escapeHTML(criterionName)}</strong>
+                    <table>
+                      <thead><tr><th>Nivel</th><th>Descripción</th><th>Puntos</th></tr></thead>
+                      <tbody>
+                        <tr><td>Excelente</td><td>La elección del encuadre refuerza claramente la intención visual.</td><td>4</td></tr>
+                        <tr><td>Bueno</td><td>El encuadre funciona, con pequeños detalles por ajustar.</td><td>3</td></tr>
+                        <tr><td>En progreso</td><td>La intención se entiende, pero el encuadre la debilita.</td><td>2</td></tr>
+                        <tr><td>Inicial</td><td>No se justifica la decisión o no se sostiene en la serie.</td><td>1</td></tr>
+                      </tbody>
+                    </table>
+                    <div class="rubric-note">
+                      <span class="pill success">Seleccionado: Bueno (3/4)</span>
+                    </div>
+                    <div class="feedback" aria-label="Retroalimentación">
+                      <strong>Observación del docente</strong>
+                      <p>En la foto 2 el encuadre bajo funciona, pero el corte en el borde izquierdo distrae. Prueba dejar más aire para sostener la intención en toda la serie.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </figure>
+          </article>
+
+          <article class="demo-step" role="listitem">
+            <header class="demo-step__head">
+              <span class="demo-step__index" aria-hidden="true">03</span>
+              <div>
+                <h3>El estudiante consulta la devolución y queda en el libro</h3>
+                <p>${escapeHTML(activityName)} · ${escapeHTML(criterionName)}</p>
+              </div>
+            </header>
+
+            <figure class="mock desktop" aria-label="Vista ilustrativa de calificación y libro de calificaciones">
+              ${renderIllustrativeTag()}
+              <div class="mock__topbar">
+                <span class="mock__title">Calificación · Curso</span>
+                <span class="pill">Libro de calificaciones</span>
+              </div>
+              <div class="mock__body">
+                <div class="grade-summary">
+                  <div class="grade-big"><strong>3/4</strong><span>${escapeHTML(criterionName)}</span></div>
+                  <div class="grade-feedback">
+                    <strong>Devolución</strong>
+                    <p>En la foto 2 el corte en el borde izquierdo distrae. En la próxima serie, prueba dejar más aire para sostener la intención.</p>
+                  </div>
+                </div>
+                <div class="gradebook" aria-label="Registro en el libro de calificaciones">
+                  <div class="gradebook__row gradebook__head"><span>Actividad</span><span>Nota</span><span>Estado</span></div>
+                  <div class="gradebook__row"><span>${escapeHTML(activityName)}</span><span>3/4</span><span class="pill success">Registrada</span></div>
+                </div>
+              </div>
+            </figure>
+          </article>
+        </div>
+      </div>
+    </section>
+  `;
+};
+
 const pages = {
   inicio: () => `
     <div class="page">
@@ -94,14 +229,23 @@ const pages = {
         <div class="container">
           <div class="hero-intro">
             <h1>Capta, enseña y certifica <em>sin salir de tu sitio.</em></h1>
-            <p class="lead">ATORA conecta comercio, aula e inteligencia artificial en el WordPress que tu institución ya tiene — pensado y construido en Venezuela, en español desde el primer día, no traducido después.</p>
+            <p class="lead">Gestiona cursos, matrículas y evaluaciones desde tu WordPress. Tus estudiantes pueden preparar entregas desde el teléfono, tus docentes califican con rúbricas y tu equipo académico sigue el avance de cada cohorte.</p>
             <div class="button-row">
-              <a class="button" href="#/ecosistema">Ver el ecosistema completo</a>
-              <a class="button button-secondary" href="#/contacto">Hablar con nosotros</a>
+              <a class="button" href="#/inicio?section=clase-en-accion" data-scroll="clase-en-accion">Ver una clase en acción</a>
+              <a class="button button-secondary" href="#/contacto">Solicitar una demostración</a>
             </div>
             <div class="hero-note"><span>Se instala sobre tu WordPress · Sin plugins sueltos que mantener · Crece por etapas</span></div>
           </div>
-          <div class="funnel">${renderFunnel()}</div>
+        </div>
+      </section>
+
+      ${renderClassInAction()}
+
+      <section class="section tint">
+        <div class="container">
+          <h2>Del primer clic al certificado: un solo recorrido.</h2>
+          <p class="lead">Atrae, matricula, enseña, evalúa, acompaña y certifica sin que los datos se pierdan entre herramientas.</p>
+          ${renderFunnel()}
         </div>
       </section>
 
@@ -121,6 +265,12 @@ const pages = {
         <div class="container">
           <h2>Cuatro copilotos, cada uno con una tarea concreta.</h2>
           <p class="lead">Nada de un asistente genérico esperando una pregunta. La institución decide hasta dónde participa cada uno.</p>
+          <div class="ai-example" role="note" aria-label="Ejemplo breve de IA">
+            <h3>Ejemplo breve (actividad de fotografía)</h3>
+            <p><strong>Criterio de rúbrica:</strong> Decisión de encuadre.</p>
+            <p><strong>Sugerencia de IA:</strong> “La intención se entiende, pero el corte en el borde izquierdo reduce el impacto en la foto 2. Sugiero puntaje 3/4 y recomendar más aire lateral.”</p>
+            <p><strong>El docente revisa y decide publicar:</strong> “Buen uso del encuadre bajo. Para sostener la serie, evita cortes en los bordes y deja más aire.”</p>
+          </div>
           ${renderCopilotShell()}
         </div>
       </section>
@@ -142,6 +292,55 @@ const pages = {
           </div>
         </div>
       </section>
+
+      <section class="section deep">
+        <div class="container">
+          <h2>Mobile y Meridian: el ecosistema completo</h2>
+          <div class="cards-2">
+            <article class="card">
+              <h3>Aplicación móvil</h3>
+              <p>Para que el estudiante prepare entregas y el docente resuelva lo urgente del día desde el teléfono, con sincronización cuando vuelva la conexión.</p>
+              <a class="button button-secondary" href="#/aplicacion-movil">Ver “Aplicación móvil”</a>
+            </article>
+            <article class="card">
+              <h3>Atora Meridian, el tema de tu academia</h3>
+              <p>Tu identidad visual se mantiene desde la portada hasta la lección: tipografías, colores, botones, tarjetas y jerarquías consistentes en cada pantalla.</p>
+              <p class="muted">Si tu institución tiene más de una marca educativa, Meridian permite mantener consistencia y diferenciar identidades por proyecto.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      ${cta()}
+    </div>`,
+
+  'aplicacion-movil': () => `
+    <div class="page">
+      <section class="section page-hero"><div class="container"><h1>Aplicación móvil</h1><p class="lead">ATORA Mobile permite que el trabajo de estudio y evaluación continúe desde el teléfono, incluso cuando la conexión no acompaña. La sincronización ocurre cuando el dispositivo vuelve a estar en línea.</p></div></section>
+
+      <section class="section"><div class="container">
+        <div class="cards-2">
+          <article class="card">
+            <h2>Qué puede hacer el estudiante</h2>
+            <ul class="check-list">
+              <li>Ver lecciones, tareas y fechas clave.</li>
+              <li>Preparar entregas (adjuntar fotos/archivos y escribir respuestas).</li>
+              <li>Consultar retroalimentación y notas publicadas.</li>
+            </ul>
+            <div class="notice">Trabajo sin conexión: la preparación de la entrega puede quedar <strong>pendiente de sincronización</strong> hasta recuperar internet.</div>
+          </article>
+          <article class="card">
+            <h2>Qué puede hacer el docente</h2>
+            <ul class="check-list">
+              <li>Revisar entregas y dejar observaciones.</li>
+              <li>Resolver lo urgente del día desde el panel “Hoy”.</li>
+              <li>Publicar retroalimentación y registrar calificaciones según la rúbrica.</li>
+            </ul>
+            <div class="notice">Trabajo sin conexión: las acciones del docente pueden quedar en cola y sincronizarse cuando el dispositivo vuelva a estar en línea.</div>
+          </article>
+        </div>
+        <p class="muted" style="margin-top:18px">En esta versión de pre-lanzamiento no publicamos enlaces de descarga. La disponibilidad en tiendas y el canal oficial de distribución se confirman por escrito en la propuesta.</p>
+      </div></section>
+
       ${cta()}
     </div>`,
 
@@ -195,7 +394,7 @@ const pages = {
       <section class="section"><div class="container audience-grid">
         <article class="audience"><span>Formación profesional</span><h3>Academias y centros</h3><p>Organiza tu oferta, atiende cohortes y convierte tu conocimiento en cursos que se venden solos.</p><ul><li>Landing con CRM integrado</li><li>Cohortes con seguimiento</li><li>Certificación con reglas propias</li></ul></article>
         <article class="audience"><span>Aprendizaje institucional</span><h3>Empresas y equipos</h3><p>Forma, certifica y da seguimiento a tu gente sin desconectar el aprendizaje de la operación real.</p><ul><li>Inducción y actualización</li><li>Evaluación de competencias</li><li>Reportes listos para RR.HH.</li></ul></article>
-        <article class="audience"><span>Sector público y seguridad</span><h3>Instituciones</h3><p>Soberanía de datos, estructura multi-núcleo y un nivel de reserva pensado para formación sensible.</p><ul><li>Autohospedaje en tu infraestructura</li><li>Estructura por programa y núcleo</li><li>Exportación para procesos formales</li></ul></article>
+        <article class="audience"><span>Sector público y seguridad</span><h3>Instituciones</h3><p><strong>¿Qué estudiantes necesitan seguimiento esta semana?</strong> Con cohortes y el panel “Hoy”, el docente ve a quién le falta una entrega o quién cayó en inactividad, y puede actuar desde la misma bandeja.</p><ul><li>Cohorte: Diplomado de Fotografía · Promoción 2026</li><li>Panel Hoy: 6 entregas pendientes · 3 alertas de inactividad</li><li>Acción docente: enviar aviso o abrir SpeedGrade</li></ul></article>
       </div></section>
       ${cta()}
     </div>`,
@@ -217,7 +416,7 @@ const pages = {
 
   contacto: () => `
     <div class="page">
-      <section class="section page-hero"><div class="container contact-grid"><div><h1>Una demo pensada para tu realidad.</h1><p class="lead">Cuéntanos lo esencial. Preparamos un recorrido enfocado en tus usuarios, tu oferta y la etapa en la que te encuentras.</p><ul class="check-list"><li>Conversación inicial sin costo</li><li>Alcance y prioridades claras</li><li>Propuesta ajustada a tu operación</li><li>Sin compromiso de publicación</li></ul></div><form class="contact-card" id="demo-form"><div class="field-grid"><div class="field"><label for="name">Nombre</label><input id="name" name="name" autocomplete="name" required placeholder="Tu nombre"></div><div class="field"><label for="organization">Organización</label><input id="organization" name="organization" autocomplete="organization" placeholder="Nombre del proyecto"></div></div><div class="field-grid"><div class="field"><label for="email">Correo</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="nombre@correo.com"></div><div class="field"><label for="profile">Tipo de proyecto</label><select id="profile" name="profile"><option>Academia o centro</option><option>Empresa u organización</option><option>Institución o sector público</option><option>Otro</option></select></div></div><div class="field"><label for="size">Participantes previstos</label><select id="size" name="size"><option>Hasta 50</option><option>51 a 200</option><option>201 a 500</option><option>Más de 500</option><option>Aún no lo sé</option></select></div><div class="field"><label for="message">¿Qué necesitas lograr?</label><textarea id="message" name="message" placeholder="Ej.: lanzar un diplomado, formar supervisores, organizar una academia..."></textarea></div><button class="button" type="submit">Preparar mi solicitud</button><p class="form-note">Esta versión de pre-lanzamiento no envía datos todavía. Al enviar verás un resumen listo para conectar al canal comercial definitivo.</p><div id="form-result" hidden></div></form></div></section>
+      <section class="section page-hero"><div class="container contact-grid"><div><h1>Una demo pensada para tu realidad.</h1><p class="lead">Cuéntanos lo esencial. Preparamos un recorrido enfocado en tus usuarios, tu oferta y la etapa en la que te encuentras.</p><ul class="check-list"><li>Conversación inicial sin costo</li><li>Alcance y prioridades claras</li><li>Propuesta ajustada a tu operación</li><li>Sin compromiso de publicación</li></ul></div><form class="contact-card" id="demo-form"><div class="field-grid"><div class="field"><label for="name">Nombre</label><input id="name" name="name" autocomplete="name" required placeholder="Tu nombre"></div><div class="field"><label for="organization">Organización</label><input id="organization" name="organization" autocomplete="organization" placeholder="Nombre del proyecto"></div></div><div class="field-grid"><div class="field"><label for="email">Correo</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="nombre@correo.com"></div><div class="field"><label for="profile">Tipo de proyecto</label><select id="profile" name="profile"><option>Academia o centro</option><option>Empresa u organización</option><option>Institución o sector público</option><option>Otro</option></select></div></div><div class="field"><label for="size">Participantes previstos</label><select id="size" name="size"><option>Hasta 50</option><option>51 a 200</option><option>201 a 500</option><option>Más de 500</option><option>Aún no lo sé</option></select></div><div class="field"><label for="message">¿Qué necesitas lograr?</label><textarea id="message" name="message" placeholder="Ej.: lanzar un diplomado, formar supervisores, organizar una academia..."></textarea></div><button class="button" type="submit">Abrir mi correo con la solicitud</button><p class="form-note">Modalidad activa: <strong>correo</strong>. Preparamos un mensaje para que lo revises y lo envíes a nuestro canal comercial.</p><div id="form-result" hidden></div></form></div></section>
       <section class="section deep"><div class="container center narrow"><h2>ATORA aún no está abierto al público.</h2><p class="lead">Las solicitudes se atienden de manera controlada mientras cerramos las validaciones del producto y confirmamos las condiciones comerciales.</p></div></section>
     </div>`,
 
@@ -320,17 +519,69 @@ function bindPage() {
 
   const form = document.querySelector('#demo-form');
   if (form) {
+    const destination = 'admin@atora.studio';
     const params = new URLSearchParams(location.hash.split('?')[1] || '');
     if (params.get('plan')) document.querySelector('#message').value = `Me interesa conocer el alcance del plan ${params.get('plan')}.`;
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       const data = new FormData(form);
       const result = document.querySelector('#form-result');
+      const summary = [
+        'Solicitud de demostración (ATORA)',
+        '',
+        `Nombre: ${data.get('name')}`,
+        `Organización: ${data.get('organization') || 'Por definir'}`,
+        `Correo: ${data.get('email')}`,
+        `Tipo de proyecto: ${data.get('profile')}`,
+        `Participantes previstos: ${data.get('size')}`,
+        '',
+        'Objetivo / contexto:',
+        `${data.get('message') || '(sin detalles adicionales)'}`,
+      ].join('\n');
+
+      const subject = encodeURIComponent('Solicitud de demostración — ATORA');
+      const body = encodeURIComponent(summary);
+      const mailto = `mailto:${destination}?subject=${subject}&body=${body}`;
+
       result.hidden = false;
       result.className = 'notice';
-      result.innerHTML = `<strong>Solicitud preparada.</strong><br>Demo para ${escapeHTML(data.get('name'))}, proyecto ${escapeHTML(data.get('organization') || 'por definir')}, con ${escapeHTML(data.get('size'))} participantes. El envío se habilitará al conectar el canal comercial antes del lanzamiento.`;
-      showToast('Resumen preparado correctamente');
+
+      result.innerHTML = `
+        <strong>Solicitud preparada.</strong>
+        <p>Modalidad activa: <strong>correo</strong>. Destino: <a href="mailto:${destination}">${destination}</a></p>
+        <div class="button-row" style="margin-top:12px">
+          <a class="button" href="${mailto}" id="mailto-link">Abrir mi correo con la solicitud</a>
+          <button class="button button-secondary" type="button" id="copy-request">Copiar solicitud</button>
+        </div>
+        <details style="margin-top:12px">
+          <summary>Ver solicitud</summary>
+          <pre class="request-preview"></pre>
+        </details>
+      `;
+      result.querySelector('.request-preview').textContent = summary;
+      result.querySelector('#copy-request').addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(summary);
+          showToast('Solicitud copiada');
+        } catch {
+          showToast('No se pudo copiar automáticamente');
+        }
+      });
+
+      try {
+        window.location.href = mailto;
+      } catch {
+        // Si el navegador bloquea el mailto, la persona igual puede usar el enlace.
+      }
+
+      showToast('Solicitud lista para enviar');
     });
+  }
+
+  const scrollTarget = new URLSearchParams(location.hash.split('?')[1] || '').get('section');
+  if (scrollTarget) {
+    const element = document.getElementById(scrollTarget);
+    if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
 
@@ -343,10 +594,11 @@ function render() {
   document.querySelectorAll('nav a').forEach(a => a.classList.toggle('active', a.dataset.route === route));
   document.querySelector('nav').classList.remove('open');
   document.querySelector('.menu-toggle').setAttribute('aria-expanded', 'false');
-  const titles = { inicio: 'ATORA — El LMS que conecta todo tu recorrido educativo', ecosistema: 'Ecosistema', funciones: 'Funciones', ia: 'Inteligencia artificial', 'frente-a-moodle': 'Frente a Moodle', planes: 'Planes', contacto: 'Contacto', nosotros: 'Sobre ATORA' };
+  const titles = { inicio: 'ATORA — El LMS que conecta todo tu recorrido educativo', ecosistema: 'Ecosistema', funciones: 'Funciones', ia: 'Inteligencia artificial', 'frente-a-moodle': 'Frente a Moodle', soluciones: 'Para quién', planes: 'Planes', 'aplicacion-movil': 'Aplicación móvil', contacto: 'Contacto', nosotros: 'Sobre ATORA' };
   document.title = route === 'inicio' ? titles.inicio : `${titles[route] || route} — ATORA`;
+  const section = new URLSearchParams(location.hash.split('?')[1] || '').get('section');
   bindPage();
-  window.scrollTo(0, 0);
+  if (!section) window.scrollTo(0, 0);
 }
 
 document.querySelector('.menu-toggle').addEventListener('click', (event) => {
